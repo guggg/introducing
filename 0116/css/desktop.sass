@@ -1,0 +1,127 @@
+.main
+    & .fadeSlider
+        & .img
+            height: 390px
+            width: 100%
+            background-repeat: no-repeat
+            background-size: cover
+            background-position: center
+            margin-top: 50px
+            
+        & .img:nth-of-type(1)
+            background-image: url("../image/daben.jpg")
+        & .img:nth-of-type(2)
+            background-image: url("../image/fish.jpg")
+        & .img:nth-of-type(3)
+            background-image: url("../image/taco.jpg")
+    & .hakata
+	    color: #fff
+	    position: absolute
+	    left: 100px
+	    bottom: 200px
+	    text-shadow: 0px 0px 5px #000
+.menu
+    padding: 50px 0
+    & .img
+        background-image: url("../image/egg.gif")
+        background-repeat: no-repeat
+        background-size: cover
+        height: 300px
+    & p
+        writing-mode: vertical-rl
+        line-height: 2em
+    & h3
+        writing-mode: vertical-rl
+        text-align: center
+.slider
+    & .col-3
+        width: 360px
+        height: 240px
+        background-size: cover
+        background-position: center
+        background-repeat: no-repeat
+        margin-right: 20px
+        &.aa1
+            background-image: url(../image/a1.jpg)
+        &.aa2
+            background-image: url(../image/a2.jpg)
+        &.aa3
+            background-image: url(../image/a3.jpg)
+        &.aa4
+            background-image: url(../image/a4.jpg)
+        &.aa5
+            background-image: url(../image/a5.jpg)
+        &.aa6
+            background-image: url(../image/a6.jpg)
+        &.aa7
+            background-image: url(../image/a7.jpg)
+        &.aa8
+            background-image: url(../image/a8.jpg)
+        &.aa9
+            background-image: url(../image/a9.jpg)
+    & .button
+        padding: 50px 0
+        & .btn.btn-danger.btn-lg
+            border-radius: 2px
+            font-weight: 300
+            background-color: #E7475E
+            padding: 5px 25px
+.slider.container-fluid
+	padding: 0
+.store
+    & .container
+        width: 75%
+    & .col-sm-6
+        background-repeat: no-repeat
+        background-size: cover
+        padding: 30px 0
+        color: #fff
+        & h2
+            z-index: 999
+            position: relative
+        & p
+            z-index: 999
+            position: relative
+        & span
+            z-index: 999
+            position: relative
+            font-size: 12px
+        & ul
+            z-index: 999
+            position: relative
+            list-style: none
+            & li
+                display: inline-block
+                & a
+                    border-radius: 0
+                    width: 150px
+                    background-color: rgba(0,0,0,.6)
+                    font-size: 14px
+                    text-align: left
+                    position: relative
+                    & span
+                        position: absolute
+                        right: 5px
+                        top: 10px
+        &::before
+            content: ""
+            display: inline-block
+            width: 100%
+            height: 100%
+            background-color: rgba(0,0,0,.6)
+            position: absolute
+            top: 0
+            left: 0
+            transition: all 0.3s
+        &:hover::before
+            opacity: 0
+    & .col-sm-6:nth-of-type(1)
+        background-image: url("http://hakata-iroha.net/img/top/shop1-bg-sp.png")
+    & .col-sm-6:nth-of-type(2)
+        background-image: url("http://hakata-iroha.net/img/top/shop2-bg-sp.png")
+    & .col-sm-6:nth-of-type(3)
+        background-image: url("http://hakata-iroha.net/img/top/shop3-bg-sp.png")
+    & .col-sm-6:nth-of-type(4)
+        background-image: url("http://hakata-iroha.net/img/top/shop4-bg-sp.png")
+
+

@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body, html{
+			background-image: url(https://visualhunt.com/photos/l/1/clouds-in-sky-blurred-motion.jpg);
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+		.clearfix::after {
+		    content: "";
+		    clear: both;
+		    display: table;
+		}
+		.container{
+			width: auto;
+			height: auto;
+		}
+		.box {
+			width: 200px;
+			height: 100px;
+			padding: 15px;
+			text-align: center;
+			margin: auto;
+			background-color: #3ABDAC;
+			margin-bottom: 15px;
+			display: flex;
+			justify-content: center;
+			text-align: center;
+			/* float: left;	 */
+		}
+		.box:nth-of-type(1){
+			width: 300px;
+			height: 150px;
+			border: 0;
+			color: #fff;
+			background-color: #70C1B3;
+			
+		}
+		.box:nth-of-type(1) .temp {
+			font-size: 60px;
+			font-weight: 800;
+		}
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script>
+		$(function(){
+			$("#city").change(function(){
+				$(".container").empty();
+				let city = $("#city").val();
+				// console.log(city);
+				$.ajax({
+				url:"http://api.openweathermap.org/data/2.5/forecast/daily",
+				data:{
+					q:city,
+					appid:"b1ecbccd638b763d489602917ba47cc3",
+					units:"metric",
+					lang:"zh_TW"
+				},
+				success:function(e){
+					// console.log(e);
+					$(e.list).each(function(){
+						let myDate = new Date(this.dt*1000);
+						let year = myDate.getFullYear();
+						let month = myDate.getMonth()+1;
+						let date = myDate.getDate();
+						let day = myDate.getDay();
+						let D = ["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
+						// console.log(myDate);
+						let temp = parseInt(this.temp.day);
+						let des = this.weather[0].description;
+						let icon = this.weather[0].icon;
+						console.log(temp);
+						let c = `
+						<div class="box">
+						${year}年${month}月${date}日-${D[day]}
+						<div>溫度:${temp}&deg;C,${des}</div><div>
+						<img src="http://openweathermap.org/img/w/${icon}.png" alt="" />
+						</div>`
+						;
+						$(".container").append(c);
+					})
+				},
+				error:function(){
+					console.log("error")
+				},
+			});
+			});
+			
+		})
+	</script>
+</head>
+<body>
+	<select id="city">
+		<option value="">請選擇</option>
+		<option value="Taipei">台北</option>
+		<option value="Tokyo">東京</option>
+		<option value="New York">紐約</option>
+		<option value="London">倫敦</option>
+	</select>
+	<div class="container clearfix">
+		
+	</div>
+</body>
+</html>

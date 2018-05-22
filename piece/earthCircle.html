@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		@keyframes sunFire{
+			form{
+				box-shadow: 0 0 50px #f5c91a;
+			}to{
+				box-shadow: 0 0 100px #f5c91a;
+			}
+		}
+		@keyframes spin{
+			from{transform: rotate(0)}
+			to{transform: rotate(360deg);}
+		}
+		html{ /*body長寬給100%，等於符合瀏覽器大小。 一定要打 html,body，不能只打body*/
+			width: 100%;
+			height: 100%;
+		}
+		#universe{
+			background-color: #000;
+			background: -webkit-radial-gradient(#555, #000); /*safari and chrome*/
+			background: -moz-radial-gradient(#555, #000); /*firefox*/
+			background: -o-radial-gradient(#555, #000); /*Opera*/
+			background: radial-gradient(#555, #000); /*漸變色，從內至外*/
+		}
+		#stars{
+			width: 100%;
+			height: 100%;
+			/*background-image: url();*/
+		}
+
+		#sun{
+			width: 200px;
+			height: 200px;
+			background-color: orange;
+			background: -webkit-radial-gradient(#f5c313, #ec7e08); /*safari and chrome*/
+			background: -moz-radial-gradient(#f5c313, #ec7e08); /*firefox*/
+			background: -o-radial-gradient(#f5c313, #ec7e08); /*Opera*/
+			background: radial-gradient(#f5c313, #ec7e08); /*漸變色，從內至外*/
+			border-radius: 100px;
+			position: absolute;
+			margin-top: -100px;
+			margin-left: -100px;
+			top:50%;
+			left: 50%;
+
+			box-shadow: 0 0 50px #f5c91a;
+			animation: sunFire 1s infinite alternate linear;
+			transition: all 2s;
+		}
+
+		#earthCircle{ /*軌跡*/
+			/*border: solid 1px red;*/
+			position: absolute;
+			top: 50%; /*置中*/
+			left: 50%;
+			height: 700px; /*本來是600px，因為藥用橢圓，所以改成700，跟把border-radius改成100%*/
+			width: 600px;
+			margin-top: -350PX; /*置中調整*/
+			margin-left: -300px;
+			border-radius: 100%;
+			animation: 30s spin linear infinite;
+		}
+		#earth{
+			position: absolute;
+			top: 50%;
+			left: 0;
+			margin-top: -40px; 
+			animation: 10s spin linear infinite;
+		}
+		#moonCircle{
+			/*border: solid 1px red;*/
+
+			height: 120px;
+			width: 120px;
+			position: absolute;
+			top: 50%;
+			left: -20px;
+			margin-top: -60px;
+			border-radius: 50%;
+			animation: 4s spin linear infinite;
+		}
+		#moon{
+			width: 30px;
+			height: 30px;
+			background-color: gray;
+			background: radial-gradient(#ddd, #888);
+			border-radius: 50%;
+			animation: 15s spin linear infinite;
+		}
+	</style>
+</head>
+<body id = "universe">
+	<div id="stars"></div>
+	<div id="sun"></div>
+	<div id="earthCircle">
+		<img src="https://i.imgur.com/zw80Ckf.png" width="88px" id = "earth" height="88px" alt="">
+		<div id="moonCircle">
+				<div id="moon"></div>
+		</div>
+	</div>
+
+</body>
+</html>

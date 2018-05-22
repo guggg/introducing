@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>action Test</title>
+	<style>
+	body {
+		width: 1080px;
+		height: 700px;
+		background-image: url(https://visualhunt.com/photos/l/7/texture-wood-background.jpg);
+		color: white;
+	}
+	*{
+		font-family: calibri;
+	}
+		#box{
+			width: 100px;
+			height: 100px;
+			display: none;
+			position: relative;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<h1 style = "font-weight: bold">Test your reactions</h1>
+	<p>Your reaction time is: <span id = "timeShow"></span><p>
+	<div id="box"></div>
+	<script>
+		function getRandomColor(){ //做一個隨機顏色的function
+			var letters = '0123456789ABCDEF'.split(''); //分開裡面每個'單字''
+			var color = '#';
+			for(var i = 0; i < 6; i++){
+				color += letters[Math.floor(Math.random()*16)];
+			}
+			return color;
+		}
+		var creaeTime; 
+		var clickTime; 
+		var timeGap;
+		var total = 0;
+		var count = 0;
+
+		function Mybox(){
+			var delayTime = Math.floor(Math.random()*1000);
+			 //要乘以千數倍，因為下面的delayTime是毫秒
+			// console.log(delayTime);
+			setTimeout(function(){ //setTimeout是設定秒數然後執行，有點像delay()
+				document.getElementById("box").style.display = "block"; //block 與 none 相對， 因為現在最一開始是隱藏的
+				document.getElementById("box").style.background = getRandomColor();
+				if(Math.random()>0.5){ //機率一半可以用這個方法，好厲害哦
+					document.getElementById("box").style.borderRadius = "100px";
+				}
+				else{
+					document.getElementById("box").style.borderRadius = "0px";
+				}
+				var top = Math.random() * 550;
+				document.getElementById("box").style.top = top +"px";
+				var left = Math.random() * 1080;
+				document.getElementById("box").style.left = left +"px";
+				creaeTime = Date.now();　//第一個時間戳記
+			},delayTime);
+		}
+
+
+			function click() { //我自己在亂弄的，不用寫這樣
+				document.getElementById("box").onclick = function(){
+					this.style.display = "none";
+					clickTime = Date.now(); //第二個時間戳記
+					timeGap = (clickTime - creaeTime) / 1000;
+					document.getElementById("timeShow").textContent = timeGap + 's';
+					if(document.getElementById("box").style.display == "none"){
+							Mybox();
+					}
+					total += timeGap;
+					// console.log(total);
+					count += 1;
+					// console.log(count);
+					if(count == 10){
+						var aver = total / count;
+						alert("Your averege reaction time is " + aver);
+						count = 0;
+						total = 0;
+					}
+				}
+			}
+		Mybox();
+		click();
+	</script>
+</body>
+</html>

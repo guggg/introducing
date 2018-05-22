@@ -1,0 +1,309 @@
+@media screen and (max-width: 1279px) and (min-width: 960px) {
+  .website-btn {
+    position: relative !important;
+    left: 95% !important;
+  }
+  .works-part {
+    padding-top: 50px;
+  }
+  .website-arrow {
+    color: white;
+    left: 770px;
+    z-index: 999;
+  }
+  .actionTest-container {
+    left: 500px;
+  }
+  .notfound404-container {
+    top: -75px;
+  }
+  .wheather-container {
+    left: 435px;
+    bottom: 250px;
+  }
+  .codePlayer-container {
+    top: -50px;
+  }
+  .drum-container {
+    top: 170px;
+  }
+  .clock-container {
+    left: 240px;
+  }
+  .works-part-this .this-website-btn-container {
+    position: static !important;
+  }
+  .about-me-part .this-website-btn-container {
+    right: 430px !important;
+  }
+}
+@media screen and (max-width: 759px) {
+  .nav-menu {
+    background-color: rgb(233, 233, 233);
+    position: static;
+    width: 100%;
+    margin: auto;
+  }
+  .nav-menu div {
+    float: none;
+  }
+  .fa-code-fork {
+    margin-left: 120px;
+  }
+}
+@media screen and (max-width: 959px) and (min-width: 480px) {
+    .intro-comment{
+        margin: 20px 0;
+    }
+  .language-group_front1 {
+    position: relative;
+    left: 40%;
+    width: 100%;
+  }
+  .language-group_front2 {
+    position: relative;
+    left: 40%;
+    width: 100%;
+  }
+  .vue-img,
+  .jq-img,
+  .js-img {
+    background-size: 140%;
+  }
+  .use-rightclick, .skill-use-rightclick{
+      margin-top: 0;
+  }
+  .language-group_back {
+    width: 120%;
+    position: relative;
+    left: 40%;
+  }
+  .intro-btn-container {
+    position: relative;
+    top: 88px;
+  }
+  .skill-use-rightclick{
+      bottom: -1%;
+  }
+  .website-btn{
+      top: 15px;
+      left: 35%;
+  }
+  .website-arrow{
+      top: 15px;
+      left: 35%;
+  }
+  .website-design-container, .japan-website-container{
+      width: 100%;
+  }
+  .website-design-container h3, .works-part-japan h3{
+      font-size: 1.8em;
+  }
+  iframe{
+      width: 560px;
+      height: 420px;
+      display: block;
+      margin: auto;
+      position: relative;
+      left: 25px;
+  }
+  .works-img-container img{
+      width: 200px;
+      height: 100px;
+  }
+  .notfound404-container{
+      left: 0;
+      bottom: 100px;
+  }
+  .wheather-container{
+      bottom: 140px;
+      left: 190px;
+  }
+  .earthCircle-container{
+      top: 50px;
+      left: 20px;
+  }
+  .earthCircle-container h3{
+      left: 100px;
+      bottom: 150px;
+  }
+  .codePlayer-container{
+      top: -50px;
+  }
+  .drum-container{
+      top: 150px;
+      left: 20px;
+  }
+  .clock-container{
+      left: 0;
+      top: 400px;
+  }
+  .clock-container h3{
+      left: -10px;
+      top: 60px;
+  }
+  .this-website-btn-container{
+      right: 37%;
+      top: 120px;
+  }
+  .about-me-part-contaniner{
+      padding: 10px;
+  }
+  .about-me-part .this-website-btn-container{
+      right: 230px;
+  }
+  .contact-me-part h5{
+      font-size: 1em;
+  }
+}
+@media screen and (max-width: 479px){
+    .welcome-title{
+        font-size: 3em;
+    }
+    .intro-container{
+        top: 40px;
+    }
+    .intro-hi{
+        font-size: 1.8em;
+    }
+    .intro-comment{
+        margin: 30px 0;
+    }
+    .html-icon, .css-icon{
+        font-size: 5em;
+        margin-left: 30px;
+    }
+    .vue-img,
+    .jq-img,
+    .js-img {
+      background-size: 100%;
+      height: 100px;
+      width: 400%;
+      margin-right: 20px;
+    }
+    .language-group_front2{
+        position: relative;
+        left: 15%;
+    }
+    .language-group_back{
+        width: 200%;
+    }
+    .intro-btn-container{
+        position: relative;
+        top: 135px;
+    }
+    .skill-use-rightclick{
+        bottom: -5%;
+    }
+    .works-part{
+        padding-top: 45px;
+    }
+    .works-part-japan, .works-part-this{
+        padding-top: 30px;
+    }
+    .website-design-container, .japan-website-container{
+        width: 100%;
+    }
+    .website-design-container h3, .japan-website-container h3{
+        font-size: 1.1em;
+        letter-spacing: 2px;
+    }
+    iframe{
+        width: 360px;
+        height: 270px;
+        position: relative;
+        left: 15px;
+    }
+    .website-btn{
+        bottom: -20px;
+        left: 110px;
+    }
+    .website-arrow{
+        bottom: -20px;
+    }
+    .works-img-container img{
+        width: 100px;
+        height: 50px;
+    }
+    .works-img-container h3{
+        font-size: 0.9em;
+    }
+    .notfound404-container{
+        left: 10px;
+        bottom: 80px;
+    }
+    .wheather-container{
+        bottom: 50px;
+    }
+    .wheather-container h3{
+        top: -6px;
+        left: -5px;
+    }
+    .actionTest-container{
+        left: 166px;
+    }
+    .actionTest-container h3{
+        top: -25px;
+        left: 40px;
+    }
+    .earthCircle-container{
+        top: 150px;
+    }
+    .codePlayer-container{
+        top: 105px;
+    }
+    .drum-container{
+        top: 190px;
+    }
+    .drum-container h3{
+        top: 25px;
+        right: -5px;
+    }
+    .clock-container{
+        top: 285px;
+    }
+    .clock-container h3{
+        left: 0;
+        top: 32px;
+    }
+    .about-me-part-contaniner{
+        padding: 30px;
+    }
+    .about-intro h4{
+        font-size: 1.3em;
+    }
+    .about-intro p{
+        font-size: .9em;
+    }
+    .about-me-part .this-website-btn-container{
+        right: 30%;
+    }
+    .contact-title{
+        font-size: 2.2em!important;
+    }
+    .contact-me-part h3{
+        font-size: .9em;
+    }
+    .contact-me-part h5{
+        font-size: 0.8em;
+    }
+}
+@media screen and (max-width: 624px) and (min-width: 480px) {
+    /*調整作品大小距離*/
+    .works-img-container img{
+        width: 150px;
+        height: 75px;
+    }
+    .works-img-container h3{
+        font-size: 0.7em;
+    }
+    .earthCircle-container h3{
+        left: 78px;
+        bottom: 111px;
+    }
+    .clock-container h3{
+        left: 0;
+        top: 50px;
+    }
+
+}

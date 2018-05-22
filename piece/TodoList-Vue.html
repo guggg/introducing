@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.min.js"></script>
+    <style>
+        body {
+            height: 2000px;
+        }
+        .h1-class{
+            font-family: 'calibri';
+            font-size: 5em;
+        }
+        .show {
+            width: 50px;
+            height: 50px;
+            background-color: rgb(11, 161, 172);
+        }
+
+        .view {
+            width: 300px;
+            height: 30px;
+            background-color: rgb(29, 198, 204);
+            line-height: 30px;
+            text-align: center;
+        }
+
+        .active {
+            color: white;
+            background-color: #f00;
+        }
+
+        .test {
+            width: 100px;
+            height: 100px;
+            background-color: rgb(12, 163, 45);
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="h1-class">Using Vue for Todo List</h1>
+    <div id="app">
+        <input type="text" v-model:value="input">
+        <!-- 1、 v-on:click 等於 @click  ==> 事件綁定-->
+        <button v-on:click="add">ADD</button>
+        <ul>
+            <li v-for="todo in todos">{{todo}}</li>
+        </ul>
+
+    </div>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: { //自訂義數據
+                message: "Vue大師",
+                input: "", //負責存取輸入的東西
+                todos: [],
+                imgName: "https://thumb1.shutterstock.com/display_pic_with_logo/1064225/581075947/stock-vector-hand-middle-finger-fuck-you-symbol-vintage-sketch-vector-illustration-581075947.jpg",
+                isActive: true,
+                title: "v-model",
+                i: 0,
+            },
+            methods: { //裡面塞function
+                add() {
+                    this.todos.push(this.input); //this會是data，push為加入陣列
+                    this.input = "";
+                },
+                add2() {
+                    this.i++;
+                },
+                run: function () {
+                    alert("我會飛");
+                },
+                speak: function () {
+                    alert("我會說話");
+                },
+            },
+            computed: { //計算屬性：根據不同情況，顯示不同內容
+                strFn: function () {
+                    if (this.i <= 5) {
+                        return "用力點...";
+                    } else if (this.i <= 10) {
+                        return "沒吃飯嗎";
+                    } else if (this.i <= 15) {
+                        return "爽拉";
+                    } else {
+                        return "麻木了";
+                    }
+                }
+            },
+            watch:{ //監聽屬性
+                i: function(newValue, oldValue){
+                    console.log(newValue, oldValue);
+                }
+            } 
+        });
+    </script>
+</body>
+
+</html>

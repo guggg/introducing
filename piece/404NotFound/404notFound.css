@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,600,700');
+@import url('https://fonts.googleapis.com/css?family=Catamaran:400,800');
+.error-container {
+  text-align: center;
+  font-size: 230px;
+  font-family: 'Catamaran', sans-serif;
+  font-weight: 800;
+  margin: 20px 15px;
+}
+.error-container > span {
+  display: inline-block;
+  line-height: 0.7;
+  position: relative;
+  top: 0px;
+  color: #FFB485;
+}
+.error-container > span {
+  /* display: inline-block;
+  position: relative; */
+  text-align: center; /* ==vertical-align: middle;*/
+
+}
+.error-container > span:nth-of-type(1) { /* 第一個4 */
+  color: #D1F2A5;
+  animation: colordancing 4s infinite;
+  transition: cubic-bezier(.09,.87,.52,-0.48);
+}
+.error-container > span:nth-of-type(3) { /* 第二個4 */
+  color: #F56991;
+  animation: colordancing2 4s infinite;
+  transition: cubic-bezier(.09,.87,.52,-0.48);
+}
+.error-container > span:nth-of-type(2) { /* 那個0 */
+  width: 150px;
+  height: 150px;
+  border-radius: 999px;
+}
+.error-container > span:nth-of-type(2):before,
+.error-container > span:nth-of-type(2):after { /* 0*/
+	border-radius: 100%;
+	content:"";
+	position: absolute;
+  top: 20px; 
+  left: 0;
+  width: inherit; 
+  height: inherit; /*inherit 意思就是繼承父元素的內容 */
+	box-shadow: inset 60px 0 0 rgba(29, 187, 207, 0.4),
+				inset 0 60px 0 rgba(14, 131, 185, 0.4),
+				inset -60px 0 0 rgba(11, 73, 167, 0.4),
+				inset 0 -60px 0 rgba(126, 10, 161, 0.4);
+  animation: shadowsdancing 4s infinite;
+}
+.error-container > span:nth-of-type(2):before {
+	-webkit-transform: rotate(45deg);
+	   -moz-transform: rotate(45deg);
+			transform: rotate(45deg); /*歪歪斜斜的那樣*/
+}
+
+.screen-reader-text {
+    position: absolute;
+    top: -9999em;
+    left: -9999em;
+}
+@keyframes shadowsdancing {
+  0% {
+    box-shadow: inset 30px 0 0 rgba(29, 187, 207, 0.4),
+				inset 0 30px 0 rgba(14, 131, 185, 0.4),
+				inset -30px 0 0 rgba(11, 73, 167, 0.4),
+        inset 0 -30px 0 rgba(58, 24, 68, 0.4);
+        
+  }
+  25% {
+    box-shadow: inset 30px 0 0 rgba(58, 24, 68, 0.4),
+				inset 0 30px 0 rgba(29, 187, 207, 0.4),
+				inset -30px 0 0 rgba(14, 131, 185, 0.4),
+				inset 0 -30px 0 rgba(11, 73, 167, 0.4);
+  }
+  50% {
+     box-shadow: inset 30px 0 0 rgba(11, 73, 167, 0.4),
+				inset 0 30px 0 rgba(58, 24, 68, 0.4),
+				inset -30px 0 0 rgba(29, 187, 207, 0.4),
+				inset 0 -30px 0 rgba(14, 131, 185, 0.4);
+  }
+   75% {
+   box-shadow: inset 30px 0 0 rgba(14, 131, 185, 0.4),
+				inset 0 30px 0 rgba(11, 73, 167, 0.4),
+				inset -30px 0 0 rgba(58, 24, 68, 0.4),
+				inset 0 -30px 0 rgba(29, 187, 207, 0.4);
+  }
+  100% {
+    box-shadow: inset 30px 0 0 rgba(29, 187, 207, 0.4),
+				inset 0 30px 0 rgba(14, 131, 185, 0.4),
+				inset -30px 0 0 rgba(11, 73, 167, 0.4),
+				inset 0 -30px 0 rgba(58, 24, 68, 0.4);
+  }
+}
+@keyframes colordancing {
+  0% {
+    color: #2b3968;
+  }
+  25% {
+    color: rgba(38, 173, 214, 0.4);
+    /* transform: translateX(-500%) translateY(-200%); */
+  }
+  50% {
+    /* transform: translateX(-350%) translateY(-150%); */
+    color: #2b3968;
+  }
+  75% {
+    /* transform: translateX(-200%) translateY(-100%); */
+    color: #2b3968;
+  }
+  100% {
+    color: #2b3968;
+  }
+}
+@keyframes colordancing2 {
+  0% {
+    /* color: rgba(14, 131, 185, 0.4); */
+    color: #2b3968;
+  }
+  25% {
+    /* color: rgba(58, 24, 68, 0.4); */
+    color: #2b3968;
+  }
+  50% {
+    /* color: rgba(58, 24, 68, 0.4); */
+    color: #2b3968;
+  }
+  75% {
+    color: rgba(38, 173, 214, 0.4);
+    
+    /* color: #fff; */
+  }
+  100% {
+    /* color: rgba(14, 131, 185, 0.4); */
+    color: #2b3968;
+  }
+}
+
+/* demo stuff */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+body {
+  background-color: #1f2a50;
+  margin-bottom: 50px;
+}
+html, button, input, select, textarea {
+    font-family: 'Montserrat', Helvetica, sans-serif;
+    color: #d8e9e5;
+}
+h1 {
+  text-align: center;
+  margin: 30px 15px;
+  position: relative;
+  top: 40px;
+}
+h4{
+  text-align: center;
+  font-size: 1.8em;
+  color: #2b3968;
+  position: relative;
+  top: -20px;
+  animation: 4s zoomin linear; 
+  transition: cubic-bezier(.09,.87,.52,-0.48);
+}
+@keyframes zoomin{
+  0% {font-size: 1.8em;
+      color: #2b3968 }
+  25% {font-size: 2.3em;
+    color: rgba(14, 131, 185, 0.4) }
+  50% {font-size: 2.8em;
+    color: rgba(29, 187, 207, 0.4) }
+  75% {font-size: 2.3em;
+    color: rgba(14, 131, 185, 0.4) }
+  100% {font-size: 1.8em;
+    color: #2b3968 }
+}

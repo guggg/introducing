@@ -1,0 +1,76 @@
+body, html { 
+	font-size: 100%; 	
+	padding: 0; 
+	margin: 0;
+}
+
+header {
+	width: 100%;
+	/*max-width: 69em;*/
+	height: 60px;
+	padding-bottom: 10px;	
+	background-color: #fff;	
+	z-index: 0;
+}	
+
+header #logo{
+	cursor: pointer;
+}
+
+header .logo{
+	width: 10%;
+	height: 100%;
+	background-image: url(../images/kkday_logo.png);
+	float: left;
+	-webkit-background-size: contain;
+	background-size: contain;
+	background-repeat: no-repeat;
+	margin-left: 100px;	
+	display: inline-block;
+	margin-top: 5px;
+	z-index: 9;
+
+}
+
+header .menu{
+	width: 30%;
+	height: 60px;
+	line-height: 60px;
+	float: right;
+	margin-right: 0;
+	color: #888;
+	display: inline-block;
+	font-weight: 600;
+	font-size: 15px;
+}
+
+header .place2go{
+	width: 35%;
+	/*height: 40px;
+	line-height: 40px;*/
+	float:left;	
+	margin-top: 7px;
+	border: 1px solid #888;
+}	
+
+#place2go input{
+	width: 89%;
+	height: 46px;
+	line-height: 46px;
+	color: #000;
+	font-weight: 400;
+	font-size: 15px;
+	background-color: #fff;
+	border-radius: 3px;
+
+}
+
+#place2go span:nth-of-type(2){
+	height: 46px;
+	width: 46px;
+	background-color: #42dcf4;
+	color: #fff;
+	font-size: 16px;
+	font-weight: 600;
+	float: right;
+}
