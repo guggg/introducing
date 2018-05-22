@@ -14,11 +14,12 @@
         .title{
             text-align: center;
             font-size: 36px;
+            margin-top: 30px
         }
         .board {
             width: 300px;
             height: 300px;
-            margin: 50px auto;
+            margin: 150px auto 100px;
             border: 5px solid #000000;
             border-radius: 10px;
             position: relative;
@@ -65,6 +66,9 @@
             background-color: #000;
             color: #fff;
         }
+        .note{
+            text-align: center;
+        }
     </style>
     <script type="text/babel">
         class RestartBtn extends React.Component{
@@ -99,6 +103,7 @@
 				}
 				return <div>
                     <div className="title">進階記憶遊戲</div>
+                    <h3 className="note">Note: 請記住，數字5是多餘的，不需要進行配對。</h3>
                     <div className="board">{cells}</div>
                     <RestartBtn update={this.updateMark.bind(this)} mark="restart" index="20"/>
                 </div>
