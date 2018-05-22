@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Advanced Memory Game</title>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script src="https://unpkg.com/redux@4.0.0/dist/redux.min.js"></script>
+    <style type="text/css">
+        .title{
+            text-align: center;
+            font-size: 36px;
+        }
+        .board {
+            width: 300px;
+            height: 300px;
+            margin: 50px auto;
+            border: 5px solid #000000;
+            border-radius: 10px;
+            position: relative;
+        }
+    
+        .board>.cell {
+            box-sizing: border-box;
+            width: 100px;
+            height: 100px;
+            line-height: 100px;
+            font-size: 50px;
+            text-align: center;
+            border: 1px solid #000000;
+            cursor: pointer;
+            display: inline-block;
+            vertical-align: middle;
+            color: transparent;
+        }
+    
+        .board>.line {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 300px;
+            height: 300px;
+        }
+        .cell.black{
+            color: black;
+        }
+        .btn{
+            display: table;
+            font-size: 20px;
+            font-weight: bold;
+            margin: 0 auto;
+            padding: 10px 20px;
+            border: 1px solid black;
+            border-radius: 10px;
+            box-shadow: 0 4px 5px 4px #ccc;
+            background-color: #fff;
+            outline: none;
+            cursor: pointer;
+        }
+        .btn:hover{
+            background-color: #000;
+            color: #fff;
+        }
+    </style>
+    <script type="text/babel">
+        class RestartBtn extends React.Component{
+            render(){
+                return <button className="btn" onClick={this.click.bind(this)}>Restart</button>
+            }
+            click(){
+                this.props.update(this.props.index, this.props.pair);
+            }
+        }
+        class Cell extends React.Component{
+            constructor(props){
+                super(props)
+            }
+            render(){
+                let textColor = "cell";
+                return <div className={(this.props.mark==0)? "cell black":"cell"} data-mark={this.props.mark} onClick={this.click.bind(this)}>{this.props.pair}</div>;
+            };
+            click(){
+                this.props.update(this.props.index, this.props.pair);
+            }
+        };
+        class Board extends React.Component{
+            constructor(props){
+                super(props);
+                this.state=redux.store.getState();
+            }
+            render(){
+               let cells=[];
+				for(let i = 0; i<9; i++){
+					cells.push(<Cell index={i} mark={this.state.marks[i]} pair={this.state.pair[i]} update={this.updateMark.bind(this)} />);
+				}
+				return <div>
+                    <div className="title">進階記憶遊戲</div>
+                    <div className="board">{cells}</div>
+                    <RestartBtn update={this.updateMark.bind(this)} mark="restart" index="20"/>
+                </div>
+            };
+            updateMark(index, pair){
+				redux.store.dispatch({
+					type:"flickCard",
+					index: index,
+                    pair: pair,
+				});
+			}
+			refresh(){
+				this.setState(redux.store.getState());
+			}
+			componentDidMount(){
+                // if(this.state.finish === "1"){
+                //     alert("success");
+                // }
+				this.unsubscribe=redux.store.subscribe(this.refresh.bind(this));
+			}
+            componentDidUpdate(){
+                if(this.state.finish === "1"){
+                    alert("success");
+                }
+            }
+			componentWillUnmount(){
+				this.unsubscribe();
+			}
+        }
+        let redux={
+            store: null,
+            reducer: (state, action)=>{
+                switch(action.type){
+                    case "flickCard":
+                    
+                        let currentMark=state.marks[action.index];
+                        let currentCircle=state.circle;
+                        
+                        if(currentMark===-1 && currentCircle ===1){
+                            state.marks[action.index]=0;
+                            let pairDone = redux.checkThisPair(state.marks, state.pair);
+                            if(pairDone === 1){
+                                let checkSuccess = redux.checkSuccess(state.marks);
+                                return {
+                                    marks:state.marks,
+                                    pair:state.pair,
+                                    circle: 0,
+                                    finish: checkSuccess,
+							    }
+                            }
+                            return {
+                                marks: [-1, -1, -1, -1, -1, -1, -1, -1, -1],
+                                pair:state.pair,
+                                circle: 0,
+                            }
+                            
+                        }else if(currentMark===-1){
+                            state.marks[action.index]=0;
+                            return {
+								marks:state.marks,
+								pair:state.pair,
+                                circle: state.circle+1,
+							}
+                       
+                        } else if(currentMark === undefined){
+                            return{
+                                circle: 0,
+				                marks: [-1, -1, -1, -1, -1, -1, -1, -1, -1],
+                                pair: randomPair,
+                                finish: null
+                            }
+                        }
+                    default:
+                        return state;
+                };
+            },
+            checkThisPair:function(marks, pair){
+                let equal = [];
+                for(let i=0; i<9; i++){
+                    if(marks[i] === 0){
+                        equal.push(pair[i])
+                    };
+                };
+                equal.sort();
+                if(equal[0] === equal[1] && equal[2] === equal[3] && 
+                   equal[4] === equal[5] && equal[6] === equal[7]){
+                    return 1;
+                }
+                return null;
+			},
+            checkSuccess:function(marks){
+                let equal = [];
+                for(let i=0; i<9; i++){
+                    if(marks[i] === 0){
+                        equal.push(marks[i])
+                    };
+                };
+                if(equal.length === 8){
+                    return "1";
+                }
+			},
+
+        };
+
+        let blank = [1,1,2,2,3,3,4,4,5];
+        let randomPair = [];
+
+        window.addEventListener("load", ()=>{
+            for (let i = 0; i < 9; i++){
+                let index = Math.floor(Math.random()*blank.length);
+                randomPair.push(blank[index]);
+                blank.splice(index, 1);
+            };
+            redux.store = Redux.createStore(redux.reducer, {
+                circle: 0,
+				marks: [-1, -1, -1, -1, -1, -1, -1, -1, -1],
+				pair: randomPair,
+				finish: null
+            });
+            ReactDOM.render(<Board />, document.body);
+        });
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>666
